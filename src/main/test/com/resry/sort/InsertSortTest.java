@@ -13,23 +13,40 @@ import static org.junit.Assert.*;
  */
 public class InsertSortTest {
 
+    /**
+     * run time: 3.5s
+     */
     @Test
     public void insertSort() {
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 4000; ++i) {
             sort(i, new InsertSort());
         }
     }
 
+    /**
+     * run time: 8s
+     */
     @Test
     public void selectionSort() {
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 4000; ++i) {
             sort(i, new SelectionSort());
+        }
+    }
+
+    /**
+     * run time: 1.7s
+     */
+    @Test
+    public void mergeSort() {
+        for (int i = 0; i < 4000; ++i) {
+            sort(i, new MergeSort());
         }
     }
 
     private void sort(int n, MySort mySort) {
         int[] a = getRandomNumber(n, Integer.MAX_VALUE);
         int[] b = Arrays.copyOf(a, a.length);
+        //使用库排序和标准的排序进行比较
         mySort.sort(a);
         Arrays.sort(b);
         for (int i = 0; i < n; ++i) {
