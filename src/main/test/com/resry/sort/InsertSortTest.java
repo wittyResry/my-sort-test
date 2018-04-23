@@ -14,14 +14,21 @@ import static org.junit.Assert.*;
 public class InsertSortTest {
 
     @Test
-    public void sort() {
-        for (int i = 0; i < 100; ++i) {
+    public void insertSort() {
+        for (int i = 0; i < 1000; ++i) {
             sort(i, new InsertSort());
         }
     }
 
+    @Test
+    public void selectionSort() {
+        for (int i = 0; i < 1000; ++i) {
+            sort(i, new SelectionSort());
+        }
+    }
+
     private void sort(int n, MySort mySort) {
-        int[] a = getRandomNumber(n);
+        int[] a = getRandomNumber(n, Integer.MAX_VALUE);
         int[] b = Arrays.copyOf(a, a.length);
         mySort.sort(a);
         Arrays.sort(b);
@@ -41,11 +48,15 @@ public class InsertSortTest {
         }
     }
 
-    private int[] getRandomNumber(int n) {
+    /**
+     * 生成小于n个[0,m)的字母
+     * @param n
+     * @return
+     */
+    private int[] getRandomNumber(int n, int m) {
         int[] a = new int[n];
         for (int i = 0; i < n; ++i) {
-            //[0-1000000)
-            a[i] = (int) (Math.random() * 1000000);
+            a[i] = (int) (Math.random() * m);
         }
         return a;
     }
