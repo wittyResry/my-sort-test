@@ -43,6 +43,30 @@ public class InsertSortTest {
         }
     }
 
+    /**
+     * run time: 23.713s
+     */
+    @Test
+    public void bubbleSort() {
+        for (int i = 0; i < 4000; ++i) {
+            sort(i, new BubbleSort());
+        }
+    }
+
+
+    @Test
+    public void arrayCopy() {
+        Integer[] a = new Integer[10];
+        for (int i = 0; i < 10; ++i) {
+            a[i] = 10 - i;
+        }
+        Integer[] b = Arrays.copyOf(a, a.length);
+        Arrays.sort(a);
+        for (int i = 0; i < 10; ++i) {
+            Assert.assertEquals("Arrays.copyOf²âÊÔ", 11, a[i] + b[i]);
+        }
+    }
+
     private void sort(int n, MySort mySort) {
         int[] a = getRandomNumber(n, Integer.MAX_VALUE);
         int[] b = Arrays.copyOf(a, a.length);

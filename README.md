@@ -72,3 +72,13 @@ MERGE(A, p, q, r)
   2 合并（递归地解各子问题）;
   3. 合并（将子问题的结果合并成原问题的解）
   ```
+
+  ### 2.4 冒泡排序
+  ```
+  BUBBLE-SORT(A)
+  	for i <- 1 to length(A)
+  		do for j <- length(A) downto i+1
+  			do if A[j] < A[j-1]
+  				then exchange(A[j], A[j-1])
+
+  ```
