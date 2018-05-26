@@ -6,7 +6,9 @@ package com.resry.sort;
  */
 public class InsertSort implements MySort {
     /**
-     * @see com.resry.sort.MySort#sort(int[])
+     * ≤Â»Î≈≈–ÚÀ„∑®
+     *
+     * @param a
      */
     public void sort(int[] a) {
         if (a == null) {

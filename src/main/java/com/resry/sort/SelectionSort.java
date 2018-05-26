@@ -7,7 +7,9 @@ package com.resry.sort;
 public class SelectionSort implements MySort {
 
     /**
-     * @see com.resry.sort.MySort#sort(int[])
+     * —°‘Ò≈≈–ÚÀ„∑®
+     *
+     * @param a
      */
     @Override
     public void sort(int[] a) {

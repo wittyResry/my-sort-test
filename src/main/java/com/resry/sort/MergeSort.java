@@ -5,11 +5,23 @@ package com.resry.sort;
  * @version $Id: MergeSort.java, v 0.1 2018-04-23 09:05 resry.lqy Exp $
  */
 public class MergeSort implements MySort {
+    /**
+     * 归并排序算法
+     *
+     * @param a
+     */
     @Override
     public void sort(int[] a) {
         mergeSort(a, 0, a.length - 1);
     }
 
+    /**
+     * 归并排序
+     *
+     * @param a
+     * @param p
+     * @param r
+     */
     private void mergeSort(int[] a, int p, int r) {
         if (p < r) {
             int q = (p + r) / 2;
@@ -19,6 +31,14 @@ public class MergeSort implements MySort {
         }
     }
 
+    /**
+     * 处理子问题
+     *
+     * @param a
+     * @param p
+     * @param q
+     * @param r
+     */
     private void merge(int[] a, int p, int q, int r) {
         int n1 = q - p + 1;
         int n2 = r - q;

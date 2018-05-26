@@ -5,6 +5,11 @@ package com.resry.sort;
  * @version $Id: BubbleSort.java, v 0.1 2018-04-24 20:45 resry.lqy Exp $
  */
 public class BubbleSort implements MySort {
+    /**
+     * √∞≈›≈≈–ÚÀ„∑®
+     *
+     * @param a
+     */
     @Override
     public void sort(int[] a) {
         if (a == null) {

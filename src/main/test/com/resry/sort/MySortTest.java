@@ -5,20 +5,21 @@ import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * @author resry.lqy
- * @version $Id: InsertSortTest.java, v 0.1 2018-04-22 21:29 resry.lqy Exp $
+ * @version $Id: MySortTest.java, v 0.1 2018-04-22 21:29 resry.lqy Exp $
  */
-public class InsertSortTest {
+public class MySortTest {
+
+    /** 测试数据集大小 */
+    private static final int SIZE = 4000;
 
     /**
      * run time: 3.5s
      */
     @Test
     public void insertSort() {
-        for (int i = 0; i < 4000; ++i) {
+        for (int i = 0; i < SIZE; ++i) {
             sort(i, new InsertSort());
         }
     }
@@ -28,7 +29,7 @@ public class InsertSortTest {
      */
     @Test
     public void selectionSort() {
-        for (int i = 0; i < 4000; ++i) {
+        for (int i = 0; i < SIZE; ++i) {
             sort(i, new SelectionSort());
         }
     }
@@ -38,8 +39,18 @@ public class InsertSortTest {
      */
     @Test
     public void mergeSort() {
-        for (int i = 0; i < 4000; ++i) {
+        for (int i = 0; i < SIZE; ++i) {
             sort(i, new MergeSort());
+        }
+    }
+
+    /**
+     * run time: 1.4s
+     */
+    @Test
+    public void heapSort() {
+        for (int i = 0; i < SIZE; ++i) {
+            sort(i, new HeapSort());
         }
     }
 
@@ -48,7 +59,7 @@ public class InsertSortTest {
      */
     @Test
     public void bubbleSort() {
-        for (int i = 0; i < 4000; ++i) {
+        for (int i = 0; i < SIZE; ++i) {
             sort(i, new BubbleSort());
         }
     }
