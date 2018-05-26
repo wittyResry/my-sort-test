@@ -7,3 +7,4 @@ target/
 *.ipr
 *.iws
 src/main/resources/git.properties
+.DS_Store
