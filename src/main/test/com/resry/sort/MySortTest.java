@@ -65,12 +65,22 @@ public class MySortTest {
     }
 
     /**
-     * run time: 1.5s
+     * run time: 1.2s
      */
     @Test
     public void quickSort() {
         for (int i = 0; i < SIZE; ++i) {
-            sort(i, new PriorityQueueSort());
+            sort(i, new QuickSort());
+        }
+    }
+
+    /**
+     * run time: 1.3s
+     */
+    @Test
+    public void randomizedQuickSort() {
+        for (int i = 0; i < SIZE; ++i) {
+            sort(i, new RandomizedQuickSort());
         }
     }
 

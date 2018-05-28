@@ -38,7 +38,7 @@ public class QuickSort implements MySort {
      * @param q
      * @return pivot的下标位置
      */
-    private int partition(int[] a, int p, int q) {
+    protected int partition(int[] a, int p, int q) {
         int pivot = a[q];
         int i = p - 1;
         for (int j = p; j <= q - 1; j++) {
