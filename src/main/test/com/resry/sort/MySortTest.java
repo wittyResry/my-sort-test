@@ -19,9 +19,7 @@ public class MySortTest {
      */
     @Test
     public void insertSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new InsertSort());
-        }
+        sort(new InsertSort(), SIZE);
     }
 
     /**
@@ -29,9 +27,7 @@ public class MySortTest {
      */
     @Test
     public void selectionSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new SelectionSort());
-        }
+        sort(new SelectionSort(), SIZE);
     }
 
     /**
@@ -39,9 +35,7 @@ public class MySortTest {
      */
     @Test
     public void mergeSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new MergeSort());
-        }
+        sort(new MergeSort(), SIZE);
     }
 
     /**
@@ -49,9 +43,7 @@ public class MySortTest {
      */
     @Test
     public void heapSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new HeapSort());
-        }
+        sort(new HeapSort(), SIZE);
     }
 
     /**
@@ -59,9 +51,7 @@ public class MySortTest {
      */
     @Test
     public void priorityQueueSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new PriorityQueueSort());
-        }
+        sort(new PriorityQueueSort(), SIZE);
     }
 
     /**
@@ -69,9 +59,7 @@ public class MySortTest {
      */
     @Test
     public void quickSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new QuickSort());
-        }
+        sort(new QuickSort(), SIZE);
     }
 
     /**
@@ -79,9 +67,15 @@ public class MySortTest {
      */
     @Test
     public void randomizedQuickSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new RandomizedQuickSort());
-        }
+        sort(new RandomizedQuickSort(), SIZE);
+    }
+
+    /**
+     * run time: 1.3s
+     */
+    @Test
+    public void hoareQuickSort() {
+        sort(new HoareQuickSort(), SIZE);
     }
 
     /**
@@ -89,8 +83,17 @@ public class MySortTest {
      */
     @Test
     public void bubbleSort() {
-        for (int i = 0; i < SIZE; ++i) {
-            sort(i, new BubbleSort());
+        sort(new BubbleSort(), SIZE);
+    }
+
+    /**
+     * ÅÅÐòÑéÖ¤
+     *
+     * @param mySort
+     */
+    private void sort(MySort mySort, int n) {
+        for (int i = 0; i < n; ++i) {
+            sort(i, mySort);
         }
     }
 
