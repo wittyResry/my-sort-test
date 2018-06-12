@@ -11,7 +11,9 @@ import org.junit.Test;
  */
 public class MySortTest {
 
-    /** 测试数据集大小 */
+    /**
+     * 测试数据集大小
+     */
     private static final int SIZE = 4000;
 
     /**
@@ -86,14 +88,30 @@ public class MySortTest {
         sort(new BubbleSort(), SIZE);
     }
 
+    @Test
+    public void countSort() {
+        sort(new CountSort(), SIZE, false);
+    }
+
     /**
-     * 排序验证
+     * 比较类排序验证
      *
      * @param mySort
      */
     private void sort(MySort mySort, int n) {
+        sort(mySort, n, true);
+    }
+
+    /**
+     * 排序验证
+     *
+     * @param mySort
+     * @param n
+     * @param isCompairationSort
+     */
+    private void sort(MySort mySort, int n, boolean isCompairationSort) {
         for (int i = 0; i < n; ++i) {
-            sort(i, mySort);
+            sort(i, mySort, isCompairationSort ? Integer.MAX_VALUE : i);
         }
     }
 
@@ -111,8 +129,8 @@ public class MySortTest {
         }
     }
 
-    private void sort(int n, MySort mySort) {
-        int[] a = getRandomNumber(n, Integer.MAX_VALUE);
+    private void sort(int n, MySort mySort, int maxValue) {
+        int[] a = getRandomNumber(n, maxValue);
         int[] b = Arrays.copyOf(a, a.length);
         //使用库排序和标准的排序进行比较
         mySort.sort(a);
@@ -135,6 +153,7 @@ public class MySortTest {
 
     /**
      * 生成小于n个[0,m)的字母
+     *
      * @param n
      * @return
      */
