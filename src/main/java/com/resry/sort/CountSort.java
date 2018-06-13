@@ -18,10 +18,10 @@ public class CountSort implements MySort {
             ++c[a[i]];
         }
         for (int i = 1; i < a.length; ++i) {
-            c[i] = c[i] + c[i - 1];
+            c[i] += c[i - 1];
         }
         //c[a[i]]记录了最终的位置，因为共有c[a[i]]个元素小于等于a[i]
-        for (int i = 0; i < a.length; ++i) {
+        for (int i = a.length - 1; i >= 0; --i) {
             b[--c[a[i]]] = a[i];
         }
         for (int i = 0; i < a.length; ++i) {
