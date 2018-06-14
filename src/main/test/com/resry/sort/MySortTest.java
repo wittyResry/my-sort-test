@@ -61,6 +61,7 @@ public class MySortTest {
      */
     @Test
     public void quickSort() {
+        //sort(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 34.785s
         sort(new QuickSort(), SIZE);
     }
 
@@ -88,18 +89,30 @@ public class MySortTest {
         sort(new BubbleSort(), SIZE);
     }
 
+    /**
+     * run time: 993ms
+     */
     @Test
     public void countSort() {
-        sort(new CountSort(), SIZE, false);
+        sort(new CountSort(), SIZE, true);
     }
 
     /**
-     * 比较类排序验证
+     * run time: 1.25 s
+     */
+    @Test
+    public void radixSort() {
+        //sort(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 35.521s
+        sort(new RadixSort(), SIZE);
+    }
+
+    /**
+     * 排序验证
      *
      * @param mySort
      */
     private void sort(MySort mySort, int n) {
-        sort(mySort, n, true);
+        sort(mySort, n, false);
     }
 
     /**
@@ -107,11 +120,11 @@ public class MySortTest {
      *
      * @param mySort
      * @param n
-     * @param isCompairationSort
+     * @param keepMax 是否需要控制最大值在n以内
      */
-    private void sort(MySort mySort, int n, boolean isCompairationSort) {
+    private void sort(MySort mySort, int n, boolean keepMax) {
         for (int i = 0; i < n; ++i) {
-            sort(i, mySort, isCompairationSort ? Integer.MAX_VALUE : i);
+            sort(i, mySort, keepMax ? i : Integer.MAX_VALUE);
         }
     }
 
