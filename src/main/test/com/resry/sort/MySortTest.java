@@ -107,6 +107,15 @@ public class MySortTest {
     }
 
     /**
+     * run time: 1.508 s
+     */
+    @Test
+    public void bucketSort() {
+        //sort(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 36.625s
+        sort(new BucketSort(), SIZE);
+    }
+
+    /**
      * ≈≈–Ú—È÷§
      *
      * @param mySort
