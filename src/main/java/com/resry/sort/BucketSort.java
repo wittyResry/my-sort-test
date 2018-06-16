@@ -24,7 +24,7 @@ public class BucketSort implements MySort {
             //process borderline
             if (buc == a.length) buc = a.length - 1;
             if (buc == -1) buc = 0;
-            //insert into bucket[buc] by insertion sort
+            //insert into bucket[buc] by insertion select
             b[buc].add(a[i]);
             int key = a[i], j = b[buc].size() - 2;
             while (j >= 0 && (int) b[buc].get(j) > key) {

@@ -5,11 +5,13 @@ import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.resry.common.TestTemplate;
+
 /**
  * @author resry.lqy
  * @version $Id: MySortTest.java, v 0.1 2018-04-22 21:29 resry.lqy Exp $
  */
-public class MySortTest {
+public class MySortTest extends TestTemplate {
 
     /**
      * 测试数据集大小
@@ -61,7 +63,7 @@ public class MySortTest {
      */
     @Test
     public void quickSort() {
-        //sort(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 34.785s
+        //select(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 34.785s
         sort(new QuickSort(), SIZE);
     }
 
@@ -102,7 +104,7 @@ public class MySortTest {
      */
     @Test
     public void radixSort() {
-        //sort(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 35.521s
+        //select(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 35.521s
         sort(new RadixSort(), SIZE);
     }
 
@@ -111,7 +113,7 @@ public class MySortTest {
      */
     @Test
     public void bucketSort() {
-        //sort(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 36.625s
+        //select(100000000, new RadixSort(), Integer.MAX_VALUE);//runtime: 36.625s
         sort(new BucketSort(), SIZE);
     }
 
@@ -171,19 +173,5 @@ public class MySortTest {
             }
             Assert.assertEquals("元素不相等", a[i], b[i]);
         }
-    }
-
-    /**
-     * 生成小于n个[0,m)的字母
-     *
-     * @param n
-     * @return
-     */
-    private int[] getRandomNumber(int n, int m) {
-        int[] a = new int[n];
-        for (int i = 0; i < n; ++i) {
-            a[i] = (int) (Math.random() * m);
-        }
-        return a;
     }
 }
