@@ -139,7 +139,8 @@ PARTITION(A, p, r)
 ### 8.1 线性时间排序
 思考：排序时间的下界证明？提示：决策树模型
 
-### 8.2 基数排序
+### 8.2 计数排序
+* 假设排序的值均介于0到k之间的整数
 ```
 COUNTING-SORT(A, B, k)
     for i <- 0 to k
@@ -153,4 +154,25 @@ COUNTING-SORT(A, B, k)
         do B[C[A[j]]] = A[j]
            C[A[j]] = C[A[j]] - 1
 
+```
+
+### 8.3 基数排序
+* 这里的stable sort可以采用计数排序，计数排序的k可取为每一位的大小，具体参考源码RadixSort.java
+```
+RADIX-SORT(A, d)
+    for i <- i to d
+        do use a stable sort to sort array A on digit i
+```
+
+### 8.4 桶排序
+* 当桶排序符合均匀输入分布，将元素独立地分布在[0,1)上。桶排序的思想就是把区间[0,1)划分成n个相同大小的子区间，或称桶。然后将n个输入分布到桶中取。因为数据均匀，不会出现多数落在一个桶中的情况。为得到结果，先对各个桶进行排序，然后按照次序把各个桶中的元素列出来即可。
+* 假设每个元素A[i]取值在[0,1)，还需要B[0..n-1]来存放链表（桶）
+```
+BUCKET-SORT(A)
+    n <- length(A)
+    for i <- 1 to n
+        do insert A[i] into list B[n * A[i]]
+    for i <- 0 to n - 1
+        do sort list B[i] with sort
+    concatenate the lists B[0], B[1], ...,B[n-1] together in order
 ```
