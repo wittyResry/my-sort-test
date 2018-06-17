@@ -9,7 +9,7 @@ import com.resry.sort.RandomizedQuickSort;
 public class RandomSelect extends RandomizedQuickSort implements MySelect {
 
     /**
-     * 选择第id大小的元素，id取值在[1,a.length]之间
+     * 思路：利用快速排序的random partition来进行排序，平均时间复杂度O(N)
      */
     @Override
     public int select(int[] a, int id) {

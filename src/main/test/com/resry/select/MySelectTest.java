@@ -18,11 +18,29 @@ public class MySelectTest extends TestTemplate {
      */
     private static final int SIZE = 4000;
 
+    /**
+     * run time: 777ms
+     */
     @Test
     public void randomSelect() {
         select(new RandomSelect(), SIZE, false);
     }
 
+    /**
+     * run time: 771ms
+     */
+    @Test
+    public void quickSelect() {
+        select(new QuickSelect(), SIZE, false);
+    }
+
+    /**
+     * run time: 1.154s
+     */
+    @Test
+    public void sortSelect() {
+        select(new SortSelect(), SIZE, false);
+    }
 
     /**
      * ≈≈–Ú—È÷§
