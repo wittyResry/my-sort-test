@@ -19,7 +19,7 @@ public class RandomizedQuickSort extends QuickSort implements MySort {
         }
     }
 
-    private int randomizedPartition(int[] a, int p, int q) {
+    protected int randomizedPartition(int[] a, int p, int q) {
         int r = (int) (Math.random() * (q - p + 1)) + p;
         int tmp = a[q];
         a[q] = a[r];
